@@ -24,9 +24,9 @@
         $Nombre             = $_POST["Nombre"];
         $Apellidos          = $_POST["Apellidos"];
 
-        $VariableCheck =  $_COOKIE["variableCheckJS"];
+        $VariableCheck      = $_POST["variableCheckJS"];
 
-        echo $Nombre . " " . $Apellidos . " " . $_COOKIE["variableCheckJS"];
+        echo $Nombre . " " . $Apellidos . " " . $variableCheckJS;
 
 
 
