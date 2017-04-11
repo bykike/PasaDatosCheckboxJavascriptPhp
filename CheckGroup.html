@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Pasar datos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="favicon.png" rel="shortcut icon">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/miCSS.css">
+  
+    </head>
+    
+<body onload="DetectaNavegador()">
+    
+<div class="row header">
+    <h1>Envío datos</h1>
+</div>
+
+
+<div class="container">
+    <div class="row body">
+    <form enctype="multipart/form-data" action="VerCheck.php" method="POST">
+          
+        <p ><strong>Datos</strong></p>
+
+        <hr>
+
+        <div class="row show-Migrid">
+            <div class="col-md-3">
+                <label for="Nombre">Nombre</label><span class="aviso"> *</span> 
+                <br>
+                <input type="text" name="Nombre" placeholder="Escribe tu nombre" required >
+             </div>     
+
+
+            <div class="col-md-3">
+                <label for="Apellidos">Apellidos</label><span class="aviso"> *</span>
+                <br>
+                <input type="text" name="Apellidos" placeholder="Escribe tus apellidos" required >
+             </div> 
+        </div>
+
+        <hr>
+
+		<div class="row show-Migrid">
+
+            	<ul id="check-list-box" class="list-group checked-list-box">
+                  <li class="list-group-item">Preparador físico especialista en Rendimiento Deportivo</li>
+                  <li class="list-group-item" data-color="success">Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades</li>
+                  <li class="list-group-item" data-color="warning">Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado</li>
+                  <li class="list-group-item" data-color="danger">Profesor de Educación Física</li>
+                  <li class="list-group-item" data-color="danger">Director Deportivo Especialista en Gestión Deportiva</li>
+                  <li class="list-group-item" data-color="danger">Especialistas en Actividades en el Medio natural</li>
+                  <li class="list-group-item" data-color="danger">Especialista en Fitness y Actividadesdirigidas en Salas polivalentes</li>
+                  <li class="list-group-item" data-color="danger">Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo</li>
+                </ul>
+
+                <br />
+
+                <button class="btn btn-primary col-xs-12" id="get-checked-data">Get Checked Data</button> 
+            <pre id="display-json"></pre>
+
+        </div>
+
+        <br>
+          
+        <div class="row">
+
+            <button class="btn btn-submit" type="submit" id="submit">Enviar Formulario </button>
+           
+            <div class="col-md-12"> 
+            	<br>
+	            <label class="checkbox-inline">
+					  <input type="checkbox" name="aceptar" id="aceptar" >He leído y acepto las <a color="#c53752" href="" target="_blank">condiciones generales</a>
+				</label>
+				<br>
+				<br>
+
+            </div>
+            
+        </div>
+
+    </form>  
+  </div>
+</div>
+    
+    
+            <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
+            crossorigin="anonymous"></script>
+            <script src="bootstrap-3.3.7/js/bootstrap.js"></script>
+
+            <!-- Contol del check -->
+            <script type="text/javascript">
+			$(function () {
+			    $('.list-group.checked-list-box .list-group-item').each(function () {
+			        
+			        // Settings
+			        var $widget = $(this),
+			            $checkbox = $('<input type="checkbox" class="hidden" />'),
+			            color = ($widget.data('color') ? $widget.data('color') : "primary"),
+			            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+			            settings = {
+			                on: {
+			                    icon: 'glyphicon glyphicon-check'
+			                },
+			                off: {
+			                    icon: 'glyphicon glyphicon-unchecked'
+			                }
+			            };
+			            
+			        $widget.css('cursor', 'pointer')
+			        $widget.append($checkbox);
+
+			        // Event Handlers
+			        $widget.on('click', function () {
+			            $checkbox.prop('checked', !$checkbox.is(':checked'));
+			            $checkbox.triggerHandler('change');
+			            updateDisplay();
+			        });
+			        $checkbox.on('change', function () {
+			            updateDisplay();
+			        });
+			          
+
+			        // Actions
+			        function updateDisplay() {
+			            var isChecked = $checkbox.is(':checked');
+
+			            // Set the button's state
+			            $widget.data('state', (isChecked) ? "on" : "off");
+
+			            // Set the button's icon
+			            $widget.find('.state-icon')
+			                .removeClass()
+			                .addClass('state-icon ' + settings[$widget.data('state')].icon);
+
+			            // Update the button's color
+			            if (isChecked) {
+			                $widget.addClass(style + color + ' active');
+			            } else {
+			                $widget.removeClass(style + color + ' active');
+			            }
+			        }
+
+			        // Initialization
+			        function init() {
+			            
+			            if ($widget.data('checked') == true) {
+			                $checkbox.prop('checked', !$checkbox.is(':checked'));
+			            }
+			            
+			            updateDisplay();
+
+			            // Inject the icon if applicable
+			            if ($widget.find('.state-icon').length == 0) {
+			                $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span>');
+			            }
+			        }
+			        init();
+			    });
+			    
+			    $('#get-checked-data').on('click', function(event) {
+			        event.preventDefault(); 
+			        var checkedItems = {}, counter = 0;
+			        $("#check-list-box li.active").each(function(idx, li) {
+			            checkedItems[counter] = $(li).text();
+			            counter++;
+                        /*  micheck [counter] = $(li).text(); Muestra la variable que contiene el contenido de los checks */
+                        /*  alert($(li).text()); Muestra la variable que contiene el contenido de los checks */
+                        var variableCheckJS = $(li).text();
+                        alert(variableCheckJS);
+			        });
+			        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
+                    
+			    });
+			});
+            </script> 
+
+ 
+    
+            <!-- Contol del check para envío -->
+            <script type="text/javascript">
+                $(document).ready(function() {
+                /* Firefox necesita el "event handler", Chrome no */
+                /* Esto siempre funciona en todos los browsers.   */
+                $("#submit").click(function(event) { 
+                var condiciones = $("#aceptar").is(":checked");
+                if (!condiciones) {
+                    alert("Debe aceptar las condiciones");
+                    event.preventDefault(event); 
+                        }
+                    });
+                });
+            </script> 
+    
+        	<!-- Detectamos el navegador -->
+            <script language="javascript"> 
+
+                function DetectaNavegador() {
+                   var ua = window.navigator.userAgent;
+                        var msie = ua.indexOf("MSIE ");
+                        var rv = -1;
+
+                        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer, Devuelve versión
+                        {               
+
+                            if (isNaN(parseInt(ua.substring(msie + 5, ua.indexOf(".", msie))))) {
+                                //For IE 11 >
+                                if (navigator.appName == 'Netscape') {
+                                    var ua = navigator.userAgent;
+                                    var re = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+                                    if (re.exec(ua) != null) {
+                                        rv = parseFloat(RegExp.$1);
+                                        // alert("cuidado es una versión " + rv);
+                                    }
+                                }
+                                else {
+                                    alert('otherbrowser');
+                                }
+                            }
+                            else {
+                                // Para versión < IE11
+                                alert('Hemos detectado que está usando Internet Explorer ' + parseInt(ua.substring(msie + 5, ua.indexOf(".", msie))) + '. Debido a ciertas incompatibilidades de este navegador, le aconsejamos que utilice para este formulario Chrome, Firefox o actualice a la última versión de Explorer. Con este navegador no garantizamos la integridad de sus datos. Gracias.');
+                            }
+                            return false;
+                        }}
+
+        	</script> 
+ 
+  </body>
+</html>
