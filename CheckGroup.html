@@ -173,6 +173,7 @@
                         /*  micheck [counter] = $(li).text(); Muestra la variable que contiene el contenido de los checks */
                         /*  alert($(li).text()); Muestra la variable que contiene el contenido de los checks */
                         var variableCheckJS = $(li).text();
+                        document.cookie = variableCheckJS;
                         alert(variableCheckJS);
 			        });
 			        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));

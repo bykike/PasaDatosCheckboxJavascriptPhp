@@ -21,9 +21,13 @@
 
 
         /* Sección Datos Personales */
+        $Nombre             = $_POST["Nombre"];
+        $Apellidos          = $_POST["Apellidos"];
 
-        $VariableCheck  = "<script> document.write(VariableCheck) </script>";
-        echo $VariableCheck;
+        $VariableCheck =  $_COOKIE["variableCheckJS"];
+
+        echo $Nombre . " " . $Apellidos . " " . $_COOKIE["variableCheckJS"];
+
 
 
 ?>
@@ -43,7 +47,7 @@
 
         <div align="center">
             <!-- Volver apantalla inicial -->
-            <input class="btn btn-default" type="button" value="Volver a la web" onclick="location.href='-index.html'">
+            <input class="btn btn-default" type="button" value="Volver a la web" onclick="location.href='CheckGroup.html'">
             <br><br>
         </div>
    
