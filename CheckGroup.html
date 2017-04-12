@@ -12,9 +12,61 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/miCSS.css">
-  
+
+    <style type="text/css"> 
+          @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+          input[type=checkbox] + label:before {
+              font-family: FontAwesome;
+              display: inline-block;
+              font-size: 19px;
+          }
+
+          input[type=checkbox]:hover + label:before {
+              background-color: yellow;
+          }
+
+          input[type=checkbox]{
+              appearance: none;
+              -moz-appearance: none;
+              -webkit-appearance: none;
+              border: 1px solid #c8c6c6;
+              width: 15px;
+              height: 15px;
+              border-radius: 2px;
+              margin: 0 5px 0 0;
+          }
+
+
+          input[type=checkbox]#especialidad1 {
+              display: none;
+          }
+
+          input[type=checkbox]#especialidad1 + label:before { 
+              content: "\f096"; 
+              letter-spacing: 10px;
+          }
+
+          input[type=checkbox]#especialidad1:checked + label:before {
+              content: '\f046';
+          }
+
+          input[type=checkbox]#especialidad1:hover + label:before {
+              background-color: #337AB7;
+          }
+
+          label:hover {
+            background-color: #337AB7;
+          }
+
+    </style> 
+
+
+
+
     </head>
-    
+
+
 <body onload="DetectaNavegador()">
     
 <div class="row header">
@@ -47,17 +99,75 @@
 
         <hr>
 
+    <div class="row">
+
+        <div class="col-md-12 checkbox-inline">
+            <input type="checkbox" id="especialidad1" name="checkbox[]" value="1">
+            <label for="especialidad1" >Preparador físico especialista en Rendimiento Deportivo </label>
+        </div>
+
+        <div class="col-md-12 checkbox-inline">
+            <input type="checkbox" id="especialidad2" name="checkbox[]" value="1">
+            <label for="checkbox2" >Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades </label>
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+
+
+<div class="row MiCheckBox"> 
+
+    <div class="col-md-12 checkbox-inline">
+       <input type="checkbox" name="Especialidades[]" value="1">Preparador físico especialista en Rendimiento Deportivo
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="2">Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="3">Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="4">Profesor de Educación Física
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="5">Director Deportivo Especialista en Gestión Deportiva
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="6">Especialistas en Actividades en el Medio natural
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="7">Especialista en Fitness y Actividadesdirigidas en Salas polivalentes
+    </div>
+
+    <div class="col-md-12 checkbox-inline">
+        <input type="checkbox" name="Especialidades[]" value="8">Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo
+    </div>
+
+</div>
+
+        <hr>
+
 		<div class="row show-Migrid">
 
             	<ul id="check-list-box" class="list-group checked-list-box">
-                  <li class="list-group-item">Preparador físico especialista en Rendimiento Deportivo</li>
-                  <li class="list-group-item" data-color="success">Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades</li>
-                  <li class="list-group-item" data-color="warning">Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado</li>
-                  <li class="list-group-item" data-color="danger">Profesor de Educación Física</li>
-                  <li class="list-group-item" data-color="danger">Director Deportivo Especialista en Gestión Deportiva</li>
-                  <li class="list-group-item" data-color="danger">Especialistas en Actividades en el Medio natural</li>
-                  <li class="list-group-item" data-color="danger">Especialista en Fitness y Actividadesdirigidas en Salas polivalentes</li>
-                  <li class="list-group-item" data-color="danger">Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Preparador físico especialista en Rendimiento Deportivo</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="success">Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="warning">Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Profesor de Educación Física</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Director Deportivo Especialista en Gestión Deportiva</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Especialistas en Actividades en el Medio natural</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Especialista en Fitness y Actividadesdirigidas en Salas polivalentes</li>
+                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo</li>
                 </ul>
 
                 <br />
