@@ -13,67 +13,58 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/miCSS.css">
 
-    <style type="text/css"> 
-          @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+        <style type="text/css">
 
-          input[type=checkbox] + label:before {
-              font-family: FontAwesome;
-              display: inline-block;
-              font-size: 19px;
-          }
+              @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-          input[type=checkbox]:hover + label:before {
-              background-color: yellow;
-          }
+              input[type=checkbox] + label:before {
+                font-family: FontAwesome;
+                display: inline-block;
+                font-size: 15px; 
+              }
 
-          input[type=checkbox]{
-              appearance: none;
-              -moz-appearance: none;
-              -webkit-appearance: none;
-              border: 1px solid #c8c6c6;
-              width: 15px;
-              height: 15px;
-              border-radius: 2px;
-              margin: 0 5px 0 0;
-          }
+              input[type=checkbox]:hover + label:before {
+                  /* background-color: yellow; */
+              }
 
+              input[type=checkbox]{
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                border: 1px solid #c8c6c6;
+                width: 15px;
+                height: 15px;
+                border-radius: 1px;
+                margin: 0 5px 0 0;
+              }
 
-          input[type=checkbox]#especialidad1 {
-              display: none;
-          }
+              label {
+                font-family: sans-serif;
+              }
 
-          input[type=checkbox]#especialidad1 + label:before { 
-              content: "\f096"; 
-              letter-spacing: 10px;
-          }
+              label:hover {
+                cursor:pointer;
+                /* background-color: #337AB7;*/
+              }
 
-          input[type=checkbox]#especialidad1:checked + label:before {
-              content: '\f046';
-          }
+              /*  Check Especialidad 1 */
+              input[type=checkbox]#especialidad1                        { display: none;}
+              input[type=checkbox]#especialidad1 + label:before         { content: "\f096"; letter-spacing: 10px; }
+              input[type=checkbox]#especialidad1:checked + label:before { content: '\f046'; background-color: #fff; }
+              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
 
-          input[type=checkbox]#especialidad1:hover + label:before {
-              background-color: #337AB7;
-          }
+              /*  Check Especialidad 2 */
+              input[type=checkbox]#especialidad2                        { display: none;}
+              input[type=checkbox]#especialidad2 + label:before         { content: "\f096"; letter-spacing: 10px; }
+              input[type=checkbox]#especialidad2:checked + label:before { content: '\f046'; background-color: #fff; }
+              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
 
-          label:hover {
-            background-color: #337AB7;
-          }
-
-    </style> 
-
-
-
+        </style> 
 
     </head>
 
-
 <body onload="DetectaNavegador()">
     
-<div class="row header">
-    <h1>Envío datos</h1>
-</div>
-
-
 <div class="container">
     <div class="row body">
     <form enctype="multipart/form-data" action="VerCheck.php" method="POST">
@@ -88,74 +79,25 @@
                 <br>
                 <input type="text" name="Nombre" placeholder="Escribe tu nombre" required >
              </div>     
-
-
-            <div class="col-md-3">
-                <label for="Apellidos">Apellidos</label><span class="aviso"> *</span>
-                <br>
-                <input type="text" name="Apellidos" placeholder="Escribe tus apellidos" required >
-             </div> 
         </div>
 
         <hr>
 
-    <div class="row">
+    <div class="row MiCheckBox">
 
         <div class="col-md-12 checkbox-inline">
-            <input type="checkbox" id="especialidad1" name="checkbox[]" value="1">
+            <input type="checkbox" id="especialidad1" name="micheckbox[]" value="1">
             <label for="especialidad1" >Preparador físico especialista en Rendimiento Deportivo </label>
         </div>
 
         <div class="col-md-12 checkbox-inline">
-            <input type="checkbox" id="especialidad2" name="checkbox[]" value="1">
-            <label for="checkbox2" >Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades </label>
+            <input type="checkbox" id="especialidad2" name="micheckbox[]" value="2">
+            <label for="especialidad2" >Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades </label>
         </div>
 
-    </div>
-
+    </div> <!-- End row MiCheckBox -->
 
     <hr>
-
-
-
-
-<div class="row MiCheckBox"> 
-
-    <div class="col-md-12 checkbox-inline">
-       <input type="checkbox" name="Especialidades[]" value="1">Preparador físico especialista en Rendimiento Deportivo
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="2">Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="3">Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="4">Profesor de Educación Física
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="5">Director Deportivo Especialista en Gestión Deportiva
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="6">Especialistas en Actividades en el Medio natural
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="7">Especialista en Fitness y Actividadesdirigidas en Salas polivalentes
-    </div>
-
-    <div class="col-md-12 checkbox-inline">
-        <input type="checkbox" name="Especialidades[]" value="8">Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo
-    </div>
-
-</div>
-
-        <hr>
 
 		<div class="row show-Migrid">
 
@@ -175,7 +117,7 @@
                 <button class="btn btn-primary col-xs-12" id="get-checked-data">Get Checked Data</button> 
             <pre id="display-json"></pre>
 
-        </div>
+        </div> <!-- End row show-Migrid -->
 
         <br>
           
@@ -193,15 +135,14 @@
 
             </div>
             
-        </div>
+        </div> <!-- End row -->
 
     </form>  
-  </div>
-</div>
+  </div> <!-- End row body -->
+</div> <!-- End container -->
     
     
-            <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
-            crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
             <script src="bootstrap-3.3.7/js/bootstrap.js"></script>
 
             <!-- Contol del check -->

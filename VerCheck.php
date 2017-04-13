@@ -18,6 +18,18 @@
 
 <?php
 
+        if (is_array($_POST['micheckbox'])) {
+                $selected = '';
+                $num_countries = count($_POST['micheckbox']);
+                $current = 0;
+                foreach ($_POST['micheckbox'] as $key => $value) {
+                    if ($current != $num_countries-1)
+                        $selected .= $value.', ';
+                    else
+                        $selected .= $value.'';
+                    $current++;
+                }
+            }
 
 
         /* Sección Datos Personales */
@@ -25,8 +37,9 @@
         $Apellidos          = $_POST["Apellidos"];
 
         $VariableCheck      = $_POST["variableCheckJS"];
+        $ListaCheck      = $_POST["ListaCheck"];
 
-        echo $Nombre . " " . $Apellidos . " " . $variableCheckJS;
+        echo "Nombre: " . $Nombre . " Apellidos: " . $Apellidos . " micheckbox: " . $selected;
 
 
 
