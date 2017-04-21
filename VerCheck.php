@@ -17,7 +17,7 @@
 
 
 <?php
-
+        /* Recojo los datos del checkbox para formatearlos */
         if (is_array($_POST['micheckbox'])) {
                 $selected = '';
                 $num_countries = count($_POST['micheckbox']);
@@ -31,17 +31,20 @@
                 }
             }
 
+        /* Recojo los datos de la listgroup en javascript para formatearlos */
+        $ss = $_POST['EspecialidadesArrayString']; 
+        /* La funcion explode convertira la cadena a arreglo */
+        $tok = explode(',',$ss); 
+        echo $tok;
+
+        /* $myarr=parseJSON($_GET['encapsulado']);
+        echo $myarr->bleh; //resultado: blehRealoaded */
 
         /* Sección Datos Personales */
-        $Nombre             = $_POST["Nombre"];
-        $Apellidos          = $_POST["Apellidos"];
-
-        $VariableCheck      = $_POST["variableCheckJS"];
+        $Nombre          = $_POST["Nombre"];
         $ListaCheck      = $_POST["ListaCheck"];
 
-        echo "Nombre: " . $Nombre . " Apellidos: " . $Apellidos . " micheckbox: " . $selected;
-
-
+        echo "Nombre: " . $Nombre . " ListaCheck: " . $ListaCheck . " Micheckbox: " . $selected;
 
 ?>
         <div class="col-md-12">

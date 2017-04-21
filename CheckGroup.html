@@ -85,12 +85,12 @@
 
     <div class="row MiCheckBox">
 
-        <div class="col-md-12 checkbox-inline">
+        <div class="col-md-12">
             <input type="checkbox" id="especialidad1" name="micheckbox[]" value="1">
             <label for="especialidad1" >Preparador físico especialista en Rendimiento Deportivo </label>
         </div>
 
-        <div class="col-md-12 checkbox-inline">
+        <div class="col-md-12">
             <input type="checkbox" id="especialidad2" name="micheckbox[]" value="2">
             <label for="especialidad2" >Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades </label>
         </div>
@@ -103,20 +103,18 @@
 
             	<ul id="check-list-box" class="list-group checked-list-box">
                   <li class="list-group-item" name="ListaCheck[]" >Preparador físico especialista en Rendimiento Deportivo</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="success">Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="warning">Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Profesor de Educación Física</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Director Deportivo Especialista en Gestión Deportiva</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Especialistas en Actividades en el Medio natural</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Especialista en Fitness y Actividadesdirigidas en Salas polivalentes</li>
-                  <li class="list-group-item" name="ListaCheck[]" data-color="danger">Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Preparador físico como Educador físico o Readaptador de lesiones, patologías o enfermedades</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Especialistas en Pruebas de acceso a Cuerpos y Fuerzas de Seguridad del Estado</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Profesor de Educación Física</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Director Deportivo Especialista en Gestión Deportiva</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Especialistas en Actividades en el Medio natural</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Especialista en Fitness y Actividadesdirigidas en Salas polivalentes</li>
+                  <li class="list-group-item" name="ListaCheck[]" >Especialistas en Natación, Actividades acuáticas o Salvamento y socorrismo</li>
                 </ul>
-
                 <br />
-
                 <button class="btn btn-primary col-xs-12" id="get-checked-data">Get Checked Data</button> 
             <pre id="display-json"></pre>
-
+            <input name="EspecialidadesArrayString" type="hidden">
         </div> <!-- End row show-Migrid -->
 
         <br>
@@ -145,7 +143,7 @@
             <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
             <script src="bootstrap-3.3.7/js/bootstrap.js"></script>
 
-            <!-- Contol del check -->
+            <!-- Contol del check multiple que franjea en azul -->
             <script type="text/javascript">
 			$(function () {
 			    $('.list-group.checked-list-box .list-group-item').each(function () {
@@ -221,8 +219,11 @@
 			        $("#check-list-box li.active").each(function(idx, li) {
 			            checkedItems[counter] = $(li).text();
 			            counter++;
-                        var variableCheckJS = $(li).text();
-                        /* alert(variableCheckJS);*/
+                        var EspecialidadesArrayString = $(li).text();
+                        alert(EspecialidadesArrayString);
+                        /* var variableCheckJS = $(li).text();
+                        var EspecialidadesArrayString = checkedItems.toString();
+                        var encapsulado=checkedItems.toJSONString();*/
 			        });
 			        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
 			    });
@@ -231,7 +232,7 @@
 
  
     
-            <!-- Contol del check para envío -->
+            <!-- Contol del check para el envío del formulario -->
             <script type="text/javascript">
                 $(document).ready(function() {
                 /* Firefox necesita el "event handler", Chrome no */
@@ -246,7 +247,7 @@
                 });
             </script> 
     
-        	<!-- Detectamos el navegador -->
+        	<!-- Detectamos el tipo de navegador que estoy empleando -->
             <script language="javascript"> 
 
                 function DetectaNavegador() {
