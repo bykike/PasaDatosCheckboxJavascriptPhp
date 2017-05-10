@@ -15,7 +15,7 @@
     <div class="row">
 
 
-
+<body>
 <?php
         /* Recojo los datos del checkbox para formatearlos */
         if (is_array($_POST['micheckbox'])) {
