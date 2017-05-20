@@ -10,13 +10,14 @@
     <meta charset="UTF-8">
        
 </head>
-
+    
+    
+<body>
    <div class="container">   
     <div class="row">
 
-
-<body>
-<?php
+        <?php
+        
         /* Recojo los datos del checkbox para formatearlos */
         if (is_array($_POST['micheckbox'])) {
                 $selected = '';
@@ -37,8 +38,6 @@
         $tok = explode(',',$ss); 
         echo $tok;
 
-        /* $myarr=parseJSON($_GET['encapsulado']);
-        echo $myarr->bleh; //resultado: blehRealoaded */
 
         /* Sección Datos Personales */
         $Nombre          = $_POST["Nombre"];
@@ -46,7 +45,8 @@
 
         echo "Nombre: " . $Nombre . " ListaCheck: " . $ListaCheck . " Micheckbox: " . $selected;
 
-?>
+        ?>
+        
         <div class="col-md-12">
             <h1>Proceso de registro</h1>
         </div>
@@ -55,7 +55,7 @@
         <br><br>
 
         <div align="center">
-            Su formulario se ha enviado con éxito. Nos pondremos en contacto con usted en el momento lo requiramos. Gracias. <br/> </div>
+            Su formulario se ha enviado con éxito. Nos pondremos en contacto con usted en el momento lo requiramos. Gracias. <br/>
         </div>
 
         <hr>

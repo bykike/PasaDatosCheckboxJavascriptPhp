@@ -12,92 +12,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/miCSS.css">
-        <!--
-        <style type="text/css">
 
-              @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
-              input[type=checkbox] + label:before {
-                font-family: FontAwesome;
-                display: inline-block;
-                font-size: 15px; 
-              }
-
-              input[type=checkbox]:hover + label:before {
-                  /* background-color: yellow; */
-              }
-
-              input[type=checkbox]{
-                appearance: none;
-                -moz-appearance: none;
-                -webkit-appearance: none;
-                border: 1px solid #c8c6c6;
-                width: 15px;
-                height: 15px;
-                border-radius: 1px;
-                margin: 0 5px 0 0;
-              }
-
-              label {
-                font-family: sans-serif;
-              }
-
-              label:hover {
-                cursor:pointer;
-                /* background-color: #337AB7;*/
-              }
-
-              /*  Check Especialidad 1 */
-              input[type=checkbox]#especialidad1                        { display: none;}
-              input[type=checkbox]#especialidad1 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad1:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
-
-              /*  Check Especialidad 2 */
-              input[type=checkbox]#especialidad2                        { display: none;}
-              input[type=checkbox]#especialidad2 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad2:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
-
-               /*  Check Especialidad 3 */
-              input[type=checkbox]#especialidad3                        { display: none;}
-              input[type=checkbox]#especialidad3 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad3:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
-
-              /*  Check Especialidad 4 */
-              input[type=checkbox]#especialidad4                        { display: none;}
-              input[type=checkbox]#especialidad4 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad4:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/   
-
-               /*  Check Especialidad 5 */
-              input[type=checkbox]#especialidad5                        { display: none;}
-              input[type=checkbox]#especialidad5 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad5:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
-
-              /*  Check Especialidad 6 */
-              input[type=checkbox]#especialidad6                        { display: none;}
-              input[type=checkbox]#especialidad6 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad6:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
-
-               /*  Check Especialidad 7 */
-              input[type=checkbox]#especialidad7                        { display: none;}
-              input[type=checkbox]#especialidad7 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad7:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/
-
-              /*  Check Especialidad 8 */
-              input[type=checkbox]#especialidad8                        { display: none;}
-              input[type=checkbox]#especialidad8 + label:before         { content: "\f096"; letter-spacing: 10px; }
-              input[type=checkbox]#especialidad8:checked + label:before { content: '\f046'; background-color: #fff; }
-              /* input[type=checkbox]#especialidad1:hover + label:before   { background-color: #337AB7; }*/             
-                       
-
-        </style> 
-		-->
     </head>
 
 <body onload="DetectaNavegador()">
@@ -288,9 +203,6 @@
 			            counter++;
                         var EspecialidadesArrayString = $(li).text();
                         alert(EspecialidadesArrayString);
-                        /* var variableCheckJS = $(li).text();
-                        var EspecialidadesArrayString = checkedItems.toString();
-                        var encapsulado=checkedItems.toJSONString();*/
 			        });
 			        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
 			    });
@@ -332,7 +244,6 @@
                                     var re = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
                                     if (re.exec(ua) != null) {
                                         rv = parseFloat(RegExp.$1);
-                                        // alert("cuidado es una versión " + rv);
                                     }
                                 }
                                 else {
